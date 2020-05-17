@@ -2,10 +2,8 @@ module.exports = {
     name: 'random',
     description: 'Team randomizer.',
     execute(msg, args) {
-        // from the message get the voice channel - 
-        // TODO: maybe from the args?
-        const channel = msg.guild.channels.cache.find(channel => channel.name === "Valorant");
-
+        const channel = msg.guild.channels.cache.find(channel => channel.name === `${args}`);
+        
         // once get the voice channel then get all the users names
         const members = channel.members; // map object of all the members in a channel
 
@@ -14,22 +12,25 @@ module.exports = {
         teams.set(0, []);
         teams.set(1, []);
 
-        // go through members collection and remove out / add name to random array
         const TOTAL_MEMBERS = members.size;
 
-        for (let i = 0; i < TOTAL_MEMBERS; i++) {
-            let randomMember = getRandomKey(members);
-            // set the name to the team map
-            if (teams.get(0).length >= 5) {
-                teams.get(1).push(members.get(randomMember).user.username);
-            } else {
-                teams.get(0).push(members.get(randomMember).user.username);
+        if (TOTAL_MEMBERS) {
+            // go through members collection and remove out / add name to random array
+            for (let i = 0; i < TOTAL_MEMBERS; i++) {
+                let randomMember = getRandomKey(members);
+                // set the name to the team map
+                if (teams.get(0).length >= 5) {
+                    teams.get(1).push(members.get(randomMember).user.username);
+                } else {
+                    teams.get(0).push(members.get(randomMember).user.username);
+                }
+                // remove it from the members map
+                members.delete(randomMember);
             }
-            // remove it from the members map
-            members.delete(randomMember);
+            teamPrinter(teams);
+        } else {
+            msg.channel.send("Nobody is in that channel!");
         }
-        teamPrinter(teams);
-
 
         function getRandomKey(collection) {
             let index = Math.floor(Math.random() * collection.size);
