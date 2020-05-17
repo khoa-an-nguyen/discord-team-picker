@@ -15,7 +15,7 @@ module.exports = {
         const TOTAL_MEMBERS = members.size;
 
         if (TOTAL_MEMBERS) {
-            if((TOTAL_MEMBERS % 2) !== 0) {
+            if ((TOTAL_MEMBERS % 2) !== 0) {
                 msg.channel.send("Hmm teams seem to be uneven... 🤔");
                 return;
             }
