@@ -3,7 +3,7 @@ module.exports = {
     description: 'Team randomizer.',
     execute(msg, args) {
         const channel = msg.guild.channels.cache.find(channel => channel.name === `${args}`);
-        
+
         // once get the voice channel then get all the users names
         const members = channel.members; // map object of all the members in a channel
 
@@ -15,6 +15,10 @@ module.exports = {
         const TOTAL_MEMBERS = members.size;
 
         if (TOTAL_MEMBERS) {
+            if((TOTAL_MEMBERS % 2) !== 0) {
+                msg.channel.send("Hmm teams seem to be uneven... 🤔");
+                return;
+            }
             // go through members collection and remove out / add name to random array
             for (let i = 0; i < TOTAL_MEMBERS; i++) {
                 let randomMember = getRandomKey(members);
