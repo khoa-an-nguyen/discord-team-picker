@@ -36,6 +36,10 @@ module.exports = {
             msg.channel.send("Nobody is in that channel!");
         }
 
+        /**
+         * Random a collection of objects by size to obtain the key.
+         * @param {*} collection 
+         */
         function getRandomKey(collection) {
             let index = Math.floor(Math.random() * collection.size);
             let count = 0;
