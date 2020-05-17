@@ -1,4 +1,4 @@
-export const testMembers = [{
+const testMembers = [{
     user: {
         id: '112384709719257080',
         bot: false,
@@ -139,3 +139,8 @@ export const testMembers = [{
     lastMessageChannelID: '697159904208748728',
 }];
 
+const testMembersMap = new Map();
+for (let i of testMembers) {
+    members.set(i.user.id, i);
+}
+export const testMembersMap
