@@ -1,0 +1,29 @@
+{
+  "name": "discord-team-picker",
+  "version": "1.0.0",
+  "description": "A helpful discord bot that would delegate teams for in-house games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khoa-an-nguyen/discord-team-picker.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "in",
+    "house"
+  ],
+  "author": "Khoa Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khoa-an-nguyen/discord-team-picker/issues"
+  },
+  "homepage": "https://github.com/khoa-an-nguyen/discord-team-picker#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
