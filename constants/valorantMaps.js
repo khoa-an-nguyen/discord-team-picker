@@ -1,0 +1,1 @@
+exports.valorantMaps = ["Haven", "Split", "Ascent", "Bind"]

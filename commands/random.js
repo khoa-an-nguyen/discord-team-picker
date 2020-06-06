@@ -1,3 +1,6 @@
+const {valorantMaps} = require('../constants/valorantMaps');
+const testmembers = require('../resources/testmembers');
+
 module.exports = {
     name: 'random',
     description: 'Team randomizer.',
@@ -7,11 +10,14 @@ module.exports = {
         // once get the voice channel then get all the users names
         const members = channel.members; // map object of all the members in a channel
 
+        // TODO: Set up tests later
+        // For testing
+        // const members = testmembers.testMembers;
+
         // Set teams collections
         const teams = new Map();
         teams.set(0, []);
         teams.set(1, []);
-
         const TOTAL_MEMBERS = members.size;
 
         if (TOTAL_MEMBERS) {
@@ -51,19 +57,21 @@ module.exports = {
         }
 
         /**
-         * Temporary function for team print out for now. could use a bit of work 😬
+         * Prints to discord chat the randomized teams
          * @param {*} teamCollection 
          */
         function teamPrinter(teamCollection) {
             let teamPrinter = ``;
-            teamPrinter += `+====TEAM 1====+\n\n`;
+            teamPrinter += `+====Attackers====+\n\n`;
             for (let member of teamCollection.get(0)) {
                 teamPrinter += `${member}\n`
             }
-            teamPrinter += "\n+====TEAM 2====+\n\n";
+            teamPrinter += "\n+====Defenders====+\n\n";
             for (let member of teamCollection.get(1)) {
                 teamPrinter += `${member}\n`
             }
+            const map = valorantMaps[Math.floor(Math.random() * valorantMaps.length)];
+            teamPrinter += `\nMap: ${map}`;
             teamPrinter += "\nGL HF! 😁";
             msg.channel.send(teamPrinter);
         }

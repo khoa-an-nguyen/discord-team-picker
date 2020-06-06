@@ -141,6 +141,6 @@ const testMembers = [{
 
 const testMembersMap = new Map();
 for (let i of testMembers) {
-    members.set(i.user.id, i);
+    testMembersMap.set(i.user.id, i);
 }
-export const testMembersMap
+exports.testMembers = Object.freeze(testMembersMap);
