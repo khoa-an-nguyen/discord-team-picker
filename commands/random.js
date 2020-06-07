@@ -1,4 +1,4 @@
-const {valorantMaps} = require('../constants/valorantMaps');
+const { valorantMaps } = require('../constants/valorantMaps');
 const testmembers = require('../resources/testmembers');
 
 module.exports = {
@@ -12,7 +12,8 @@ module.exports = {
 
         // TODO: Set up tests later
         // For testing
-        // const members = testmembers.testMembers;
+        // const members = testmembers.testMembers
+        // console.log(members);
 
         // Set teams collections
         const teams = new Map();
