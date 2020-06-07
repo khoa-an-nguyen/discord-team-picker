@@ -63,19 +63,21 @@ module.exports = {
          * @param {*} teamCollection 
          */
         function teamPrinter(teamCollection) {
-            let teamPrinter = "```";
-            teamPrinter += `+====Attackers====+\n\n`;
+            let teamPrinter = "```css\n";
+            teamPrinter += `[Attackers]\n\n`;
+            
             for (let member of teamCollection.get(0)) {
                 teamPrinter += `${member}\n`
             }
-            teamPrinter += "\n+====Defenders====+\n\n";
+            teamPrinter += "```";
+            teamPrinter += "```ini\n";
+            teamPrinter += "[Defenders]\n\n";
             for (let member of teamCollection.get(1)) {
                 teamPrinter += `${member}\n`
             }
-            const map = valorantMaps[Math.floor(Math.random() * valorantMaps.length)];
-            teamPrinter += `\nMap: ${map}`;
-            teamPrinter += "\n\nGL HF! 😁";
             teamPrinter += "```";
+            const map = valorantMaps[Math.floor(Math.random() * valorantMaps.length)];
+            teamPrinter += `\n\`Map: ${map}\``;
             msg.channel.send(teamPrinter);
         }
     }
