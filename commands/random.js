@@ -1,4 +1,4 @@
-const { valorantMaps } = require('../constants/valorantMaps');
+const {valorantMaps} = require('../constants/valorantMaps');
 const testmembers = require('../resources/testmembers');
 
 module.exports = {
@@ -12,7 +12,8 @@ module.exports = {
 
         // TODO: Set up tests later
         // For testing
-        // const members = testmembers.testMembers
+        // const testMembers = {...testmembers};
+        // const members = testMembers.testMembers;
         // console.log(members);
 
         // Set teams collections
@@ -62,7 +63,7 @@ module.exports = {
          * @param {*} teamCollection 
          */
         function teamPrinter(teamCollection) {
-            let teamPrinter = ``;
+            let teamPrinter = "```";
             teamPrinter += `+====Attackers====+\n\n`;
             for (let member of teamCollection.get(0)) {
                 teamPrinter += `${member}\n`
@@ -73,7 +74,8 @@ module.exports = {
             }
             const map = valorantMaps[Math.floor(Math.random() * valorantMaps.length)];
             teamPrinter += `\nMap: ${map}`;
-            teamPrinter += "\nGL HF! 😁";
+            teamPrinter += "\n\nGL HF! 😁";
+            teamPrinter += "```";
             msg.channel.send(teamPrinter);
         }
     }
